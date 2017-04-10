@@ -1,0 +1,33 @@
+Laboratorium Informatyki 1 rok AiR 
+
+Temat ćwiczenia
+
+Cel ćwiczenia
+
+Ćwiczenie ma na celu zapoznanie z podstawowymi strukturami danych jakimi są drzewa przeszukiwań binarnych - BST (ang. Binary Serach Trees). W szczególności omówione zostaną podstawowe operacje możliwe do wykonania na drzewach BST tj. przeszukiwanie, szukanie minimum i maksimum, wstawianie. Pewna ich część będzie realizowana za pomocą funkcji rekurencyjnych.  Do reprezentacji drzew BST można wykorzystać różne struktury tworzone w oparciu o zmienne dynamiczne.
+
+Podstawowe operacje na drzewach poszukiwań binarnych wymagają czasu proporcjonalnego do wysokości drzewa. W tzw. zrównoważonym drzewie binarnym o n węzłach takie operacje działają w najgorszym przypadku w czasie O(lg n). Jeżeli jednak drzewo składa się z jednej gałęzi o długości n, to te same operacje wymagają w pesymistycznym przypadku czasu O(n).
+
+Drzewo binarne spełnia następującą charakterystyczną własność, pozwalającą na szybkie wyszukiwanie jego elementów:
+
+Niech x będzie węzłem drzewa BST. Jeżeli y jest węzłem znajdującym się w lewym poddrzewie węzła x, to klucz[y] ≤ klucz[x]. Jeżeli y jest węzłem znajdującym się w prawym poddrzewie węzła x, to klucz[x] ≤ klucz[y]. Inaczej mówiąc, dla każdego węzła x klucze znajdujące się w jego lewym poddrzewie są nie większe niż klucz[x], a klucze w jego prawym poddrzewie są nie mniejsze niż klucz[x]). 
+
+Zadanie
+
+Należy utworzyć książkę telefoniczną z osobami (ilość dowolna) – dane wczytywane z klawiatury. Informacje przechowywane to imię, nazwisko i numery telefonów ( więcej niż jeden). Gdy dane są wypisywane na ekranie to  pojawiają się one  w  porządku alfabetycznym.
+
+Dodatkowo należy zrealizować dodatkowe funkcjonalności :
+
+    wprowadzenie danych zrealizowane iteracyjnie (funkcja Insert)
+    przechodzenie po drzewie wersja in-order ( funkcja InOrder) – zrealizowane rekurencyjnie
+    wyszukiwanie wartości minimalnej  klucza w drzewie – zrealizowane rekurencyjnie
+    wyszukiwanie wartości maksymalnej  klucza w drzewie – zrealizowane rekurencyjnie
+    zliczanie liczby węzłów w drzewie– zrealizowane rekurencyjnie
+    wyszukiwanie określonego klucza w drzewie
+    określanie wysokości drzewa - zrealizowane rekurencyjnie
+
+Implementacja w języku C.
+
+Czas trwania ćwiczenia 2 tygodnie.
+
+ 

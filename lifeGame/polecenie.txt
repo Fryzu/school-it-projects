@@ -1,0 +1,109 @@
+Laboratorium Informatyki AiR I Rok
+
+
+Temat ćwiczenia:
+
+
+Celem ćwiczenia jest implementacja „gry w życie” w języku C opisanej po raz pierwszy przez matematyka Johna Conway’a. Świat w tej grze zrealizowany zostanie za pomocą dwu-wymiarowej tablicy (wym. 80x22). Każdy jej element czyli komórka ma dwa stany: żywa lub martwa.
+
+Gra jest symulacją, która następuje w dyskretnych krokach - kolejnych generacjach. Każda komórka może zmienić swój stan z żywej na martwą bazując na stanach 8-miu sąsiadów. Sąsiadami komórki są to komórki bezpośrednio powyżej, poniżej, na prawo, na lewo, po przekątnej powyżej na prawo i lewo oraz po przekątnej poniżej na prawo i lewo.
+
+Poniżej podano reguły, które określają w jakim stanie jest komórka w następnej generacji:
+
+    Jeśli zajęta komórka ma zero lub jeden sąsiadów, umiera z samotności.
+    Jeśli zajęta komórka ma więcej niż trzech sąsiadów, umiera z przeludnienia.
+    Jeśli pusta komórka ma dokładnie trzy zajęte komórki sąsiada, następują narodziny nowej komórki, aby zastąpić pustą komórkę.
+
+Narodziny i zgony są chwilowe i występują w kolejnych pokoleniach. Komórka umierająca z jakiegokolwiek powodu może pomóc w narodzinach, ale nowo powstała komórka nie może wskrzesić komórki, która umiera, ani nie będzie też komórka umierająca mogła zapobiec śmierci innej, powiedzmy, przez zmniejszenie miejscowej ludności.
+
+ 
+
+Po wstępnej konfiguracji, odczytaniu i wyświetleniu danych początkowych, czas zacznie mijać i nowe pokolenia będą się pojawiać tzn. każda iteracja pętli while będzie oznaczać powstanie nowej generacji. Niektóre komórki umierają, inne się rodzą. Program musi obliczyć te zmiany i wyświetlić świat wynikający z każdej iteracji (generacji). Program powinien być wstrzymywany chwilowo, aby umożliwić zauważenie przez użytkownika bieżącej konfiguracji komórek, można to zrobić za pomocą wywołania funkcji usleep (unistd.h). Przerwa 1/5 sekundy powinna być wystarczająca. Program zakończy się, gdy użytkownik wpisze literę "k"(dużą lub małą).
+
+ 
+
+Prace nad programem podzielone zostaną na pewne etapy:
+
+    Zaprojektowanie i implementacja biblioteki do tworzenia i obsługi tablicy alokowanej dynamicznie (funkcja create() tworząca tablicę o defaultowym rozmiarze, resize() powiększająca rozmiar tablicy, at() podająca wartość i-tego elementu tablicy, insert() wkładająca element na daną pozycję w tablicy, delete() usuwająca tablicę dynamiczną, ew. inne niezbędne). Z tą częścią programu będą związane dwa pliki array.h oraz array.c. W pierwszym zawieramy definicję struktury przechowującej informacje o tablicy dynamicznej oraz nagłówki funkcji, a w drugim definicje funkcji dla tablicy.
+    Zaprojektowanie i implementacja algorytmu do symulacji gry w życie (kolejne 2 pliki z nagłówkami oraz definicjami).
+    Obsługa wejścia i wyjścia, umieszczenie danych wejściowych w pliku o nazwie np. danewe.txt i wyjściowych w pliku o nazwie danewy.txt. Informacje o tych plikach podawane są w trakcie uruchamiania programu, przykładowo:
+
+mojprog  danewe.txt  danewy.txt
+
+ 
+
+Wszystkie pliki nagłówkowe należy otoczyć dyrektywą kompilacji warunkowej.
+
+Program ostatecznie będzie miał budowę wielomodułową, zatem kompilujemy wszystkie zbiory osobno, a potem je razem linkujemy w jeden program wykonywalny. Wskazane jest napisanie prostego make.
+
+ 
+
+Przykładowe dane wejściowe do programu umieszczane w zbiorze danewe.txt to np.:
+
+ 
+
+36 9
+
+38 9
+
+40 9
+
+42 9
+
+44 9
+
+ 
+
+35 10
+
+37 10
+
+39 10
+
+41 10
+
+43 10
+
+45 10
+
+ 
+
+36 11
+
+38 11
+
+40 11
+
+42 11
+
+44 11
+
+ 
+
+35 12
+
+37 12
+
+39 12
+
+41 12
+
+43 12
+
+45 12
+
+ 
+
+36 13
+
+38 13
+
+40 13
+
+42 13
+
+44 13
+
+ 
+
+Czas trwania ćwiczenia to 2 zajęcia.
