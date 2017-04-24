@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "BST": "cpp",
-        "*h*hsystem_error": "cpp",
-        "system_error": "cpp"
-    }
-}
