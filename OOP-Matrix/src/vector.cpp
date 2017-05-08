@@ -105,7 +105,7 @@ std::ostream & operator<<(std::ostream &outstream, const Vector &vector)
 {
 	for(int k = 0; k < vector.size; k++)
 	{
-		outstream << vector.numberTable[k] << std::endl;
+		outstream << vector.numberTable[k] << " ";
 	}
 
 	return outstream;

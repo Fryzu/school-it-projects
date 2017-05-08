@@ -43,3 +43,85 @@ Matrix & Matrix::operator=(const Matrix &matrix)
 	return *this;
 }
 
+Matrix operator+(const Matrix &matrix1, const Matrix &matrix2)
+{
+	Matrix result(matrix1.rows, matrix1.columns);
+	if((matrix1.columns != matrix2.columns) || (matrix1.rows != matrix2.rows))
+	{
+		std::cout << "error - cant add different size matricies" << std::endl;
+		return result;
+	}
+
+	for(int k = 0; k < matrix1.columns; k++)
+	{
+		*(result.vectorTable[k]) = *(matrix1.vectorTable[k]) + *(matrix2.vectorTable[k]); 
+	}
+
+	return result;
+}
+
+Matrix operator-(const Matrix &matrix1, const Matrix &matrix2)
+{
+	Matrix result(matrix1.rows, matrix1.columns);
+	if((matrix1.columns != matrix2.columns) || (matrix1.rows != matrix2.rows))
+	{
+		std::cout << "error - cant add different size matricies" << std::endl;
+		return result;
+	}
+
+	for(int k = 0; k < matrix1.columns; k++)
+	{
+		*(result.vectorTable[k]) = *(matrix1.vectorTable[k]) - *(matrix2.vectorTable[k]); 
+	}
+
+	return result;	
+}
+
+std::ostream& operator<<(std::ostream &outstream, const Matrix& matrix)
+{
+	for(int k = 0; k < matrix.columns; k++)
+	{
+		outstream << *(matrix.vectorTable[k]) << std::endl;
+	}
+
+	return outstream;
+}
+
+bool operator==(const Matrix& matrix1, const Matrix& matrix2)
+{
+	if((matrix1.columns != matrix2.columns) || (matrix1.rows != matrix2.rows))
+	{
+		std::cout << "error - cant compare different size matricies" << std::endl;
+		return false;
+	}
+
+	bool result = true;
+	for(int k = 0; k < matrix1.columns; k++)
+	{
+		if(matrix1.vectorTable[k] != matrix2.vectorTable[k]) result = false;
+	}
+
+	return result;
+}
+
+bool operator!=(const Matrix& matrix1, const Matrix& matrix2)
+{
+	if(matrix1 == matrix2) return false;
+	else return true;
+}
+
+Matrix& operator+=(Matrix& matrix1, const Matrix& matrix2)
+{
+	matrix1 = matrix1 + matrix2;
+
+	return matrix1;
+}
+
+Matrix& operator-=(Matrix& matrix1, const Matrix& matrix2)
+{
+	matrix1 = matrix1 - matrix2;
+
+	return matrix1;
+}
+
+
