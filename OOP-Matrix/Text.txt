@@ -62,7 +62,4 @@ Temat 4: PODSTAWOWE OPERACJE NA MACIERZACH
  //...
  //...
  #endif
- 
- 
- 
- Temat na trzy zajecia za 20 pkt.
+
