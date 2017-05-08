@@ -1,0 +1,68 @@
+Laboratorium z Informatyki II semestr AiR
+ 
+Temat 4: PODSTAWOWE OPERACJE NA MACIERZACH
+               
+ Zdefiniuj klase macierz  o dowolnych rozmiarach, okreslanych
+ w momencie tworzenia macierzy. Klasa ta skladac sie powinna  z dowolnej liczby
+ obiektow typu wektor (relacja posiadania miedzy klasami), klasa wektor z kolei
+ zawiera dowolna liczbe elementow typu calkowitego.
+ Nalezy przeciazyc nastepujace operatory: przypisania =, +, -, *, ==, !=,
+ [] (indeksowanie), << (operator wyjscia), >> (operator wejscia), +=, -=, *=.
+ Przy przeciazaniu operatorow dla macierzy nalezy skorzystac z wczesniej
+ przeciazonych operatorow dla wektorow (!!!).
+ Operatory powinny byc zdefiniowane dla kazdej sensownej (!!!) kombinacji
+ danych typu: liczba, wektor, macierz.
+                            UWAGA!
+ Konstruktory powinny umozliwiac utworzenie defaultowej macierzy o rozmiarze
+ 2X2 z wartoscia ustawiona na 0 (podobnie wektor), przy czym :
+ 
+     **PIERWSZY ARGUMENT to liczba elementow w wektorze
+     **DRUGI ELEMENT to liczba wektorow w macierzy
+ 
+ 
+ Nalezy utworzyc dwa osobne programy testowe dla wektorow oraz macierzy.
+ Wydruk dla macierzy powinien wygladac mniej wiecej nastepujaco:
+ dla kazdej operacji arytmetycznej i logicznej nalezy wypisac:
+ 
+  macierz we1
+ 
+   operacja
+ 
+  macierz we2
+      =
+   macierz wy
+ 
+ na przyklad:
+ 
+ 1 1 1
+ 1 1 1
+ 1 1 1
+   +
+ 2 2 2
+ 2 2 2
+ 2 2 2
+   =
+ 3 3 3
+ 3 3 3
+ 3 3 3
+ 
+ przy czym dla operacji  logicznych wypisac rezultat.
+ Dla macierzy wypisac jakis konkretny element np. a(i,j)=..., tak samo
+ dla wektora.
+ 
+ Dla wektorow nalezy postapic analogicznie.
+ Przyklady nie powinny miec rozmiaru wiekszego niz 5.
+ 
+ Nalezy zabezpieczyc sie przed kilkukrotnym wlaczaniem tego samego zbioru,
+ mozna to zrobic uzywajac nastepujacej konstrukcji polecen preprocesora:
+ 
+ #ifndef WEKTOR
+ #define WEKTOR
+ //tresc zbioru *.h
+ //...
+ //...
+ #endif
+ 
+ 
+ 
+ Temat na trzy zajecia za 20 pkt.
