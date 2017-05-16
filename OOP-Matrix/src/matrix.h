@@ -25,8 +25,8 @@ class Matrix
 		Matrix& operator=(const Matrix&);
 		friend Matrix operator-(const Matrix&, const Matrix&);
 		friend Matrix operator+(const Matrix&, const Matrix&);
+		friend Matrix operator*(const Matrix&, const Matrix&);
 		friend std::ostream& operator<<(std::ostream&, const Matrix&);
-		
 		friend bool operator==(const Matrix&, const Matrix&);
 		friend bool operator!=(const Matrix&, const Matrix&);
 		friend Matrix& operator+=(Matrix&, const Matrix&);

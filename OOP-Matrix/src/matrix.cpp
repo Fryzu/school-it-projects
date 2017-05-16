@@ -77,6 +77,31 @@ Matrix operator-(const Matrix &matrix1, const Matrix &matrix2)
 	return result;	
 }
 
+Matrix operator*(const Matrix& matrix1, const Matrix& matrix2)
+{
+	Matrix result(matrix1.columns, matrix2.rows);
+	if(matrix1.columns != matrix2.rows)
+	{
+		std::cout << "error - cant multiply different size matricies" << std::endl;
+		return result;
+	}
+	
+	for(int y1 = 0; y1 < matrix1.rows; y1++)
+	{
+		for(int x2 = 0; x2 < matrix2.columns; x2++)
+		{
+		      int add = 0;
+		      
+		      for(int k = 0; k < matrix1.columns; k++)
+		      {
+			  add = add + matrix1.vectorTable[k]->numberTable[y1] * matrix2.vectorTable[x2]->numberTable[k];   
+		      }
+		}
+	}
+	
+	return result;
+}
+
 std::ostream& operator<<(std::ostream &outstream, const Matrix& matrix)
 {
 	for(int k = 0; k < matrix.columns; k++)
