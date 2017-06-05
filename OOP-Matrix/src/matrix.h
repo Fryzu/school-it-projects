@@ -26,11 +26,14 @@ class Matrix
 		friend Matrix operator-(const Matrix&, const Matrix&);
 		friend Matrix operator+(const Matrix&, const Matrix&);
 		friend Matrix operator*(const Matrix&, const Matrix&);
-		friend std::ostream& operator<<(std::ostream&, const Matrix&);
 		friend bool operator==(const Matrix&, const Matrix&);
 		friend bool operator!=(const Matrix&, const Matrix&);
 		friend Matrix& operator+=(Matrix&, const Matrix&);
 		friend Matrix& operator-=(Matrix&, const Matrix&);
+		friend Matrix& operator*=(Matrix&, const Matrix&);
+		friend std::ostream& operator<<(std::ostream&, const Matrix&);
+		friend std::istream& operator>>(std::istream&, Matrix&);
+		Vector& operator[](const int) const;
 };
 
 #endif

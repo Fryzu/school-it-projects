@@ -94,22 +94,13 @@ Matrix operator*(const Matrix& matrix1, const Matrix& matrix2)
 		      
 		      for(int k = 0; k < matrix1.columns; k++)
 		      {
-			  add = add + matrix1.vectorTable[k]->numberTable[y1] * matrix2.vectorTable[x2]->numberTable[k];   
+			  add = add + (matrix1.vectorTable[k]->getNumberTable())[y1] * (matrix2.vectorTable[x2]->getNumberTable())[k];   
 		      }
-		}
+			  result.vectorTable[x2]->setNumberTable(y1, add);
+		}	
 	}
 	
 	return result;
-}
-
-std::ostream& operator<<(std::ostream &outstream, const Matrix& matrix)
-{
-	for(int k = 0; k < matrix.columns; k++)
-	{
-		outstream << *(matrix.vectorTable[k]) << std::endl;
-	}
-
-	return outstream;
 }
 
 bool operator==(const Matrix& matrix1, const Matrix& matrix2)
@@ -148,5 +139,44 @@ Matrix& operator-=(Matrix& matrix1, const Matrix& matrix2)
 
 	return matrix1;
 }
+
+Matrix& operator*=(Matrix& matrix1, const Matrix& matrix2)
+{
+	matrix1 = matrix1 * matrix2;
+
+	return matrix1;
+}
+
+std::ostream& operator<<(std::ostream &outstream, const Matrix& matrix)
+{
+	for(int k = 0; k < matrix.columns; k++)
+	{
+		outstream << *(matrix.vectorTable[k]) << std::endl;
+	}
+
+	return outstream;
+}
+
+std::istream& operator>>(std::istream &instream, Matrix& matrix)
+{
+	for(int k = 0; k < matrix.columns; k++)
+	{
+		instream >> *(matrix.vectorTable[k]);
+	}
+
+	return instream;
+}
+
+Vector& Matrix::operator[](const int x) const
+{
+	if(x < 0)
+	{
+		std::cout << "errror - parametr should be positive" << std::endl;
+	}
+
+	return *vectorTable[x];
+}
+
+
 
 

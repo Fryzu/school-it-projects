@@ -101,16 +101,6 @@ Vector operator-(const Vector &v1, const Vector &v2)
 	return result;
 }
 
-std::ostream & operator<<(std::ostream &outstream, const Vector &vector)
-{
-	for(int k = 0; k < vector.size; k++)
-	{
-		outstream << vector.numberTable[k] << " ";
-	}
-
-	return outstream;
-}
-
 bool operator==(const Vector &v1, const Vector &v2)
 {
 	if(v1.size != v2.size)
@@ -157,4 +147,24 @@ Vector & operator-=(Vector &v1, const Vector &v2)
 	v1 = v1 - v2;
 
 	return v1;
+}
+
+std::ostream & operator<<(std::ostream &outstream, const Vector &vector)
+{
+	for(int k = 0; k < vector.size; k++)
+	{
+		outstream << vector.numberTable[k] << " ";
+	}
+
+	return outstream;
+}
+
+std::istream & operator>>(std::istream &instream, Vector &vector)
+{
+	for(int k = 0; k < vector.size; k++)
+	{
+		instream >> vector.numberTable[k];
+	}
+
+	return instream;
 }
