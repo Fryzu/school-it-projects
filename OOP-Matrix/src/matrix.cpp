@@ -34,6 +34,11 @@ Matrix & Matrix::operator=(const Matrix &matrix)
 		std::cout << "error - cant assign different size matricies" << std::endl;
 		return *this;
 	}
+	
+	if(*this == matrix)
+	{
+		return *this;
+	}
 
 	for(int k = 0; k < columns; k++)
 	{
